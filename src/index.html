@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Adaptive Card</title>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>" />
+  <style>
+    .recommendation-card-container {
+      max-width: calc(100% - 40px);
+      background-color: #FFF;
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.18), 0px 2px 4px rgba(0, 0, 0, 0.12);
+      border-radius: 4px;
+      position: relative;
+      margin-bottom: 5px;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    .new-card {
+
+      border-top: 5px solid #76A6FF;
+
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="center">Adaptive card rendering</h1>
+  <!-- <script type="text/javascript" src="https://unpkg.com/markdown-it/dist/markdown-it.min.js"></script> -->
+  <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+
+  <div>
+    <input type="file" id="files" name="files[]" multiple />
+    <input type="file" id="files2" name="files[]" multiple />
+    <ul id="fileList"></ul>
+    <button id="render">Render</button>
+  </div>
+  <!-- <div class="row">
+    <div class="column"></div>
+  </div> -->
+  <div id="designerRootHost"></div>
+  <!-- <div id="card" style="width: 200; height: 200;">
+    <iframe id="result" height="200" width="200"></iframe> 
+  </div> -->
+  <!-- <div style="background-color:black;color:white;padding:20px;">
+    <textarea id="textarea" rows="4" cols="50"></textarea>
+  </div> -->
+  <!-- <script>
+    document.getElementById('render').addEventListener('click', () => {
+      document.body.innerHTML = "Event fired";
+    });
+  </script> -->
+  <!-- <script src="script/tabs.ts"></script> -->
+
+
+  <!-- <script type="text/javascript">
+    window.onload = function () {
+
+      let hostContainers = [];
+
+      // Optional: add the default Microsoft Host Apps (see docs below)
+      // hostContainers = ACDesigner.defaultMicrosoftHosts;
+
+      let designer = new ACDesigner.CardDesigner(hostContainers);
+
+      // The designer requires various CSS and image assets to work properly, 
+      // If you've loaded the script from a CDN it needs to know where these assets are located
+      // Use the same <VERSION> that you used above
+      designer.assetPath = "https://unpkg.com/adaptivecards-designer@0.7.4/dist";
+
+      // Initialize monaco-editor for the JSON-editor pane. The simplest way to do this is use the code below
+      require.config({ paths: { 'vs': 'https://unpkg.com/monaco-editor@0.17.1/min/vs' } });
+      require(['vs/editor/editor.main'], function () {
+        designer.monacoModuleLoaded();
+      });
+      ACDesigner.GlobalSettings.enableDataBindingSupport = true;
+      designer.attachTo(document.getElementById("designerRootHost"));
+      designer.toolbar.getElementById(ACDesigner.CardDesigner.ToolbarCommands.OpenPayload).isVisible = false;
+
+    };
+  </script> -->
+
+
+</body>
+
+</html>
